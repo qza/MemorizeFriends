@@ -8,21 +8,25 @@
 		<link href="memorize.css" rel="stylesheet">			
 	</head>
 	<body>
-		<div id="how_many_form_div">
-			<span>
-				<label>Select level</label>
-				<select id="level_select" name="level_select">
-					<option id="l1opt" value="1">Beginner</option>
-					<option id="l2opt" value="2">Easy</option>
-					<option id="l3opt" value="3">Advanced</option>
-					<option id="l4opt" value="4">Hard</option>
-					<option id="l5opt" value="5">Expert</option>
-				</select>
-				<button name="submit" value="Ok" onclick="button_clicked()">
-					Start
-				</button>
-			</span>
+		<div id="head_container" class="container_16">
+			<div id="how_many_form_div" class="grid_15 prefix_1">
+				<span>
+					<label>Select level</label>
+					<select id="level_select" name="level_select">
+						<option id="l1opt" value="1">Beginner</option>
+						<option id="l2opt" value="2">Easy</option>
+						<option id="l3opt" value="3">Advanced</option>
+						<option id="l4opt" value="4">Hard</option>
+						<option id="l5opt" value="5">Expert</option>
+					</select>
+					<button name="submit" value="Ok" onclick="button_clicked()">
+						Start
+					</button>
+				</span>
+			</div>	
+			<div clas="clear"></div>
 		</div>
+		
 		<div id="card_container" class="container_12">		
 		</div>
 		<!-- CONTENT TEMPLATE -->
@@ -30,7 +34,7 @@
 		<div id="content_template" style="display:none;">
 		  <ul class="hover_block">
 			<li class="hover_action">
-				<a href="#"><img src="question_mark.jpg" alt="UWP"/>UWP</a>
+				<a style="width:100%; height:100%;" href="#"><img src="question_mark.jpg" alt="UWP"/>UWP</a>
 			</li>
 		  <ul>
 		</div>

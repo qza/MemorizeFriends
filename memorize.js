@@ -3,12 +3,11 @@ var count = 0;
 
 /* Grid dimension for levels 1 - 5 	
 */
-var size_per_level = [ 4, 6, 8, 10, 12];
+var size_per_level = [ 3, 4, 6, 8, 10];
 
 /* 960 Grid element size for each level
  */
-var grid_elem_size = [ 3, 2, 1, 1, 1];
-
+var grid_elem_size = [ 1, 1, 1, 1, 1];
 
 /* BOOTSTRAP */
 
@@ -65,7 +64,7 @@ init_card_board = function(level){
 			$("<div>")
 				.attr("id", elem_id)		
 				.attr("class", elem_clas_def)
-				.append($("#content_template").html())
+				.append("<ul class='hover_block'><li class='hover_action'><a href='#'><img src='question_mark.jpg' alt='UWP'/>UWP</a></li><ul>")
 				.append("</div>")
 				.appendTo("#card_container");
 		
