@@ -5,10 +5,6 @@ var count = 0;
 */
 var size_per_level = [ 3, 4, 6, 8, 10];
 
-/* 960 Grid element size for each level
- */
-var grid_elem_size = [ 1, 1, 1, 1, 1];
-
 /* BOOTSTRAP */
 
 $(function(){
@@ -51,19 +47,16 @@ button_clicked = function(){
 init_card_board = function(level){
 
 	grid_size = size_per_level[level-1];
-	elem_size = grid_elem_size[level-1];	
 	
 	row_counter = 1;
 	col_counter = 1;
 	while(row_counter <= grid_size){
 		while(col_counter <= grid_size){	
 			elem_id = row_counter + "_" + col_counter;					
-			elem_clas_def = "grid_" + elem_size;
-
 			/*  add_card */
 			$("<div>")
 				.attr("id", elem_id)		
-				.attr("class", elem_clas_def)
+				.attr("class", "grid_1")
 				.append("<ul class='hover_block'><li class='hover_action'><a href='#'><img src='question_mark.jpg' alt='UWP'/>UWP</a></li><ul>")
 				.append("</div>")
 				.appendTo("#card_container");
