@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<title>Memorize friends</title>
+		<link href="reset.css" rel="stylesheet">
+		<link href="960.css" rel="stylesheet">
+		<link href="text.css" rel="stylesheet">
+		<link href="memorize.css" rel="stylesheet">			
+	</head>
+	<body>
+		<div id="how_many_form_div">
+			<span>
+				<label>Select level</label>
+				<select id="level_select" name="level_select">
+					<option id="l1opt" value="1">Beginner</option>
+					<option id="l2opt" value="2">Easy</option>
+					<option id="l3opt" value="3">Advanced</option>
+					<option id="l4opt" value="4">Hard</option>
+					<option id="l5opt" value="5">Expert</option>
+				</select>
+				<button name="submit" value="Ok" onclick="button_clicked()">
+					Start
+				</button>
+			</span>
+		</div>
+		<div id="card_container" class="container_12">		
+		</div>
+		<!-- CONTENT TEMPLATE -->
+		<!-- Use JQuery html method to get card content template -->
+		<div id="content_template" style="display:none;">
+		  <ul class="hover_block">
+			<li class="hover_action">
+				<a href="#"><img src="question_mark.jpg" alt="UWP"/>UWP</a>
+			</li>
+		  <ul>
+		</div>
+		<script type="text/javascript" src="jquery-1.5.js"></script>
+		<script type="text/javascript" src="jquery.blockUI.js"></script>
+		<script type="text/javascript" src="memorize.js"></script>
+
+	</body>
+</html>

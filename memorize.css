@@ -1,0 +1,43 @@
+body { background: #666; }
+
+ul.hover_block { display: block; overflow: hidden; height: 1%; padding-bottom: 1px; }
+
+ul.hover_block li {
+	list-style:none;
+	float:left;
+	background: #fff;
+	width:60px; position: relative;
+	padding: 1px;
+	margin-right: 1px;
+}
+
+ul.hover_block li a {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	background: url("small_back.png");
+	height: 60px;
+	width: 60px;
+	padding: 0px;
+	margin: 0px;
+	color: #000;
+}
+
+ul.hover_block li a { text-decoration: none; }
+
+ul.hover_block li img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 0;
+}
+
+#how_many_form_div{
+	text-align:center;
+	padding: 1em;
+}
+
+#how_many_form_div span label{
+	font-size: 1.2em; 
+	padding-top: 1em;
+}
