@@ -55,5 +55,6 @@ button_clicked = function(){
 	level_str = $("#level_select option:selected").val();
 	level = parseInt(level_str);  
 	build_board(level);
+	test_facebook_images();
 	bootstrap();
 };
