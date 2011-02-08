@@ -16,7 +16,7 @@ ul.hover_block li a {
 	display: block;
 	position: relative;
 	overflow: hidden;
-	background: url("small_back.png");
+	/*background: url("small_back.png");*/
 	height: 60px;
 	padding: 0px;
 	margin: 0px;
