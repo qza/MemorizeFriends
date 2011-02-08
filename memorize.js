@@ -11,13 +11,26 @@ $(function(){
     bootstrap(); 
 });
 
+var pick1 = null;
+var pick2 = null;
+
 bootstrap = function(){
 	$('.hover_action').click(function(){				
+		if(this.getAttribute('click')!= null) return false;
 		if(count < 2 ) {
 			$(this).find('img').animate({left:'60px'},{queue:false,duration:500});
+			this.setAttribute('click','click');
 			if(count ==1){
-				setTimeout(closing,2000);
-				$.blockUI({message: ' ', css: { width: 0, height: 0} });
+				pick2 = this;
+				if(pickMatch(pick1, pick2)==true) {
+					count = 0;
+					setTimeout(function(){alert('You made a match!');},500);
+					return;
+				} else {
+					setTimeout(closing,2000);
+				}
+			} else {
+				pick1 = this;
 			}
 			count = count + 1;
 		}
@@ -25,15 +38,23 @@ bootstrap = function(){
 	});
 };	
 
+pickMatch=function(pick1,pick2){
+	var p1 = $(pick1).find('img')[0].getAttribute('src');
+	var p2 = $(pick2).find('img')[0].getAttribute('src');
+	return p1 == p2;
+}
+
 /* METHODS
 */
 closing = function(){
 	if(count == 2) {
 		count = 0;
+		pick1 = null;
+		pick2 = null;
 		$('.hover_action').each(function(){
+			this.removeAttribute('click');
 			$(this).find('img').animate({left:'0px'},{queue:false,duration:1000});
 		});
-		$.unblockUI();
 	}
 };	
 
