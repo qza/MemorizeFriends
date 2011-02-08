@@ -1,10 +1,13 @@
 // Grid dimension for levels 1 - 5
 var size_per_level = [ 4, 6, 8, 10, 12];
 
+var card_count = 16;
+
 build_board = function(level){
 	row_counter = 1;
 	col_counter = 1;
 	grid_size = size_per_level[level-1];
+	card_count = grid_size * grid_size / 2;
 	while(row_counter <= grid_size){
 		while(col_counter <= grid_size){	
 			elem_id = row_counter + "_" + col_counter;			
