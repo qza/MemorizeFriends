@@ -5,9 +5,14 @@
 // FACEBOOK USER ID
 var facebook_user_id_holder = function(){
 	return "me";
-}
+};
 
-// FACEBOOK API ID
-var facebook_api_id_holder = function(){
+// FACEBOOK APP ID
+var facebook_app_id_holder = function(){
 	return "";
-}
+};
+
+// FACEBOOK APP SECRET
+var facebook_app_secret_holder = function(){
+	return "";
+};

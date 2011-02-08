@@ -5,9 +5,9 @@ get_user_picture_path = function(user_id){
 };
 	
 /* Add user friends as card backgrounds */
-add_user_pictures = function(user_id, limit, apikey){
+add_user_pictures = function(user_id, limit){
 	counter = 0;
-	$.getJSON("https://graph.facebook.com/"+user_id+"/friendlists?access_token="+apikey, {}, 
+	$.getJSON("https://graph.facebook.com/"+user_id+"/friendlists?access_token="+get_token(), {}, 
 	  	function(data) {
 			$.each(data.items, function(i,item){
 				counter++;
@@ -22,8 +22,21 @@ add_user_pictures = function(user_id, limit, apikey){
   	);
 }
 
-test_facebook_images = function(){
-	user_id = facebook_user_id_holder();
-	apikey = facebook_api_id_holder();
-	add_user_pictures(user_id, card_count, apikey);
+var facebook_token_url = function(){
+	return "https://graph.facebook.com/oauth/access_token?" +
+    "client_id=" + facebook_app_id_holder() + "&client_secret=" + facebook_app_secret_holder() +
+    "&grant_type=client_credentials";
+}
+
+var get_token = function(){
+    $.getJSON(facebook_token_url, {}, 
+	  	function(data) {
+			return data;
+		}
+   );
+};
+
+test_facebook_images = function(limit){
+  user_id = facebook_user_id_holder();
+  add_user_pictures(user_id, limit);
 }
