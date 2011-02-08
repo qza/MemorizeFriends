@@ -25,7 +25,7 @@ append_card = function(elem_id, image_id){
 	content[0] = "<div id='" + elem_id + "' class='grid_1'>";
 	content[1] = "<ul class='hover_block'><li class='hover_action'>";
 	content[2] = "<a id='" + image_id + "' href='#'>";
-	content[3] = "<img alt='UWP' src='question_mark.jpg'>";
+	content[3] = "<img alt='UWP' src='res/question_mark.jpg'>";
 	content[4] = "UWP</a></li><ul></ul></ul></div>";
 	$("#card_container").append(content.join(''));	
 };
