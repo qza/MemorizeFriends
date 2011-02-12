@@ -12,13 +12,13 @@ bootstrap = function(){
 	$('.hover_action').click(function(){				
 		if(this.getAttribute('click')!= null) return false;
 		if(count < 2 ) {
-			$(this).find('img').animate({left:'60px'},{queue:false,duration:500});
+			$(this).find('img').animate({left:'60px'},{queue:false,duration:300});
 			this.setAttribute('click','click');
 			if(count ==1){
 				pick2 = this;
 				if(pickMatch(pick1, pick2)==true) {
 					count = 0;
-					setTimeout(function(){alert('You made a match!');},500);
+					setTimeout(function(){alert('You made a match!');}300);
 					return;
 				} else {
 					setTimeout(closing,2000);
