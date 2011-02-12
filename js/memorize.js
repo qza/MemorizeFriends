@@ -18,7 +18,7 @@ bootstrap = function(){
 				pick2 = this;
 				if(pickMatch(pick1, pick2)==true) {
 					count = 0;
-					setTimeout(function(){alert('You made a match!');}300);
+					setTimeout(function(){alert('You made a match!');},300);
 					return;
 				} else {
 					setTimeout(closing,2000);
