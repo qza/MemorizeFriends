@@ -28,7 +28,7 @@ add_user_pictures = function(user_id, limit){
 	   var query = getFriendPicturesQuery(me);
 		var doquery = FB.Data.query(query);
 		doquery.wait(function(rows) {
-		   var size = rows.length(); 
+		   var size = rows.length();
 			$.each(rows, function(i,item){
 				counter++;
 				image_path = item.pic_square;
@@ -58,17 +58,24 @@ add_user_pictures = function(user_id, limit){
 }
 
 function getFriendPicturesQuery(me){
-  var query = [];
-  query[0] = 'SELECT uid, name, pic_square FROM user WHERE uid =';
-  query[1] = me.id;
-  query[2] = 'OR uid IN (SELECT uid2 FROM friend WHERE uid1 =';
-  query[3] = me.id;
-  query[4] = ')'
-  return query.join(' ');
+  var q = [];
+  q[0] = 'SELECT uid, name, pic_square FROM user WHERE uid =';
+  q[1] = me.id;
+  q[2] = 'OR uid IN (SELECT uid2 FROM friend WHERE uid1 =';
+  q[3] = me.id;
+  q[4] = ')'
+  return q.join(' ');
 }
 
-function getImageCode(image_path) {
-	return "<img class='user_photo' style='position:absolute; z-index: 1; left: 5; top: 5;' src='" + image_path+ "'/>";
+function getImageCode(image_path){
+  var q = [];
+  q[0] = ' <img';
+  q[1] = ' class="user_photo"';
+  q[2] = ' style="position:absolute; z-index: 1; left: 5; top: 5;"';
+  q[3] = ' src="';
+  q[4] = image_path;
+  q[5] = '"/>'
+  return q.join('');
 }
 
 function randomXToY(minVal,maxVal,floatVal) {
