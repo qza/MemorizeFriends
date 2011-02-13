@@ -12,7 +12,10 @@ bootstrap = function(){
 	$('.hover_action').click(function(){				
 		if(this.getAttribute('click')!= null) return false;
 		if(count < 2 ) {
-			$(this).find('img').animate({left:'60px'},{queue:false,duration:300});
+                        var my_id = $(this).attr("id");
+                        var qm_id = "qm_" + my_id;
+			var tmp = $('#'+qm_id);		
+			tmp.animate({left:'60px'},{queue:false,duration:300});
 			this.setAttribute('click','click');
 			if(count ==1){
 				pick2 = this;

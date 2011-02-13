@@ -1,3 +1,4 @@
+
 // Grid dimension for levels 1 - 5
 var size_per_level = [ 4, 6, 8, 10, 12];
 
@@ -26,10 +27,10 @@ build_board = function(level){
 append_card = function(elem_id, image_id){
 	var content = [];
 	content[0] = "<div id='" + elem_id + "' class='grid_1'>";
-	content[1] = "<ul class='hover_block'><li class='hover_action'>";
+	content[1] = "<ul class='hover_block'><li id='li_" + image_id + "' class='hover_action'>";
 	content[2] = "<a id='" + image_id + "' href='#'>";
-	content[3] = "<img alt='UWP' src='res/question_mark.jpg'>";
-	content[4] = "UWP</a></li><ul></ul></ul></div>";
+	content[3] = "<img id='qm_li_" + image_id + "' class='questionMark'  style='position:absolute;z-index: 2;' alt='UWP' src='res/question_mark.jpg'>";
+	content[4] = "</a></li><ul></ul></ul></div>";
 	$("#card_container").append(content.join(''));	
 };
 

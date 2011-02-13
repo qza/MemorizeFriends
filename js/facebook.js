@@ -10,38 +10,57 @@ FB.init({
 get_user_picture_path = function(user_id){
 	return "http://graph.facebook.com/" + user_id + "/picture";
 };
+
+var images = new Array();
+var setImages = new Array();
 	
 /* Add user friends as card backgrounds */
 add_user_pictures = function(user_id, limit){
 	counter = 0;
 	FB.api('/me', function(me) {
-		var query = FB.Data.query('select title, url, created_time from friendlist  where owner={0}',me.id);
+		var query = FB.Data.query('SELECT uid, name, pic_square FROM user WHERE uid = '+me.id+'OR uid IN (SELECT uid2 FROM friend WHERE uid1 = '
+		+me.id+')');
 		query.wait(function(rows) {
 			$.each(rows, function(i,item){
 				counter++;
-				image_path = item.picture;
-				next_id = "img_" + counter;
-				current_css = $("#" + next_id).css(); 
-				$("#" + next_id).css(current_css + "background:url('" + image_path + "')");
+				image_path = item.pic_square;
+				images[counter]="<img class='user_photo' style='position:absolute; z-index: 1; left: 5; top: 5;' src='" + image_path+ "'/>";
+				
+				//next_id = "image_" + counter;
+                                //$("#" + next_id).append("<img style='position:absolute; z-index: 1; left: 5; top: 5;' src='" + image_path+ "'/>");
+				// current_css = $("#" + next_id).css(); 
+				// $("#" + next_id).css("background:url('" + image_path + "')");
+				// $("#" + next_id).attr("style", "background: url('"+image_path+"')");
 				/* Check card limit */
-  				if(counter==limit) return false;
-  			});
-		});
-		});
 
-	$.getJSON("https://graph.facebook.com/"+user_id+"/friendlists?access_token="+get_token(), {}, 
-	  	function(data) {
-			$.each(data.items, function(i,item){
-				counter++;
-				image_path = get_user_picture(item.id);
-				next_id = "img_" + counter;
-				current_css = $("#" + next_id).css(); 
-				$("#" + next_id).css(current_css + "background:url('" + image_path + "')");
-				/* Check card limit */
   				if(counter==limit) return false;
   			});
-  		}
-  	);
+			var tmpCount = 0;
+			$("a[id^='image_']").each( function(){
+				var random = randomXToY(1,limit);
+				var image = images[random];
+				if(image.count==undefined){
+					$(this).append(image);
+					image.count = 1;
+				} else if (image.count ==1 ){
+					$(this).append(image);
+					image.count = 2;
+				} else {
+					while(image.count == 2 ){
+						image=images[randomXToY(1,limit)];		
+					}
+					$(this).append(image);	
+				}
+			});
+		});
+		});
+}
+
+//function to get random number upto m
+function randomXToY(minVal,maxVal,floatVal)
+{
+  var randVal = minVal+(Math.random()*(maxVal-minVal));
+  return typeof floatVal=='undefined'?Math.round(randVal):randVal.toFixed(floatVal);
 }
 
 var facebook_token_url = function(){
