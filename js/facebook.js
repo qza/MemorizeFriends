@@ -1,60 +1,90 @@
+var fbid = facebook_app_id_holder();
+
 var is_test = true;
 
 FB.init({
-	appId : '118130168215562',
+	appId : fbid,
 	status : true, // check login status
 	cookie : true, // enable cookies to allow the server to access the session
 	xfbml : true // parse XFBML
 });
 
-
+// Method called on application initialization
 var test_facebook_images = function(limit){
   user_id = facebook_user_id_holder();
   add_user_pictures(user_id, limit);
 }
 
-var uid = FB.getSession().uid;
-
-var query = FB.Data.query('select title, url, created_time from link where owner={0}',uid);
-
-var images = new Array();
-
-var setImages = new Array();
 	
-/* Add user friends as card backgrounds */
-add_user_pictures = function(user_id, limit){
-	counter = 0;
+/* Add user friends as card backgrounds. 
+ *  
+ * Task description
+ * 
+ * There can be 16, 36, 64, 100 or 144 cards on  the board. Each 
+ * picture is placed  on two  cards. User may  have less or more 
+ * friends then needed for some level. If user have less friends
+ * then needed for selected leve, user is  automaticly  switched 
+ * to appropriate level. Is  most cases user have  more  friends 
+ * then  needed, and 8,18,32,50 or 72 friends  picures is needed 
+ * to be able to play
+ */ 
+add_user_pictures = function(user_id, limit){		
+	// All images on the board
+	// Holder for Map {nextrandom, nextimage}
+	var images = new Object();
+	var nextrandom = -1;
+	var nextimage  = "";
+	// Call FB api for user_id param
 	FB.api('/me', function(me) {
+		// Get all objects for user frineds
 	   var query = getFriendPicturesQuery(me);
 		var doquery = FB.Data.query(query);
+		// Execute query and proces result rows
 		doquery.wait(function(rows) {
-		   var size = rows.length();
-			$.each(rows, function(i,item){
-				counter++;
-				image_path = item.pic_square;
-				images[counter]= getImageCode();
-  				if(counter==limit) return false;
+		   // Take random images until reaching limit   		   
+		   while(images.length < limit){
+		      // Randomly from all friends
+		   	nextrandom = randomXToY(1,rows.length());
+		   	// Select picture only once,  
+		   	if(images[nextrandom] == null) {
+		   		// Add key and image to map
+		   		images[nextrandom] = {
+		   			imagesrc: rows[nextrandom].pic_square
+		   		};
+					alert("ADDED NUMBER:" + nextrandom + "; IMAGE SRC:" + nextimage.imagesrc);
+		   	}
+		   }
+			// Tracking used positions on board
+			var positions = new Array();
+			// Traverse selected pictures
+			$.each(images, function(i,item){
+				// Tracking usage of some picure
+				var numberonboard = 0;
+				// Place each on two positions
+				while(numberonboard < 2) {
+					// Get random for axes
+					nextx = randomXToY(1,limit);
+					nexty = randomXToY(1,limit);
+					// Target element <a id=" .... />
+					nextid = "image_" + nextx + "_" + nexty;
+					// Test if this position is used
+					if(!positions.contains(nextid)) {
+						// Get image code
+						var imagecode = getImageCode(item.imagesrc);
+						// Add Image code to Target element
+						$("#"+ next_id).append(imagecode);
+						// Mark position						
+						positions.add(nextid);
+						// Increase number of occurences
+						numberonboard = numberonboard + 1;
+					} 
+				}
   			});
   			
-			var tmpCount = 0;
-			$("a[id^='image_']").each( function(){
-				var random = randomXToY(1,limit);
-				var image = images[random];
-				if(image.count==undefined){
-					$(this).append(image);
-					image.count = 1;
-				} else if (image.count ==1 ){
-					$(this).append(image);
-					image.count = 2;
-				} else {
-					while(image.count == 2 ){
-						image=images[randomXToY(1,limit)];		
-					}
-					$(this).append(image);	
-				}
-			});
 		});
-		});
+		
+   });
+   
 }
 
 function getFriendPicturesQuery(me){
@@ -82,3 +112,13 @@ function randomXToY(minVal,maxVal,floatVal) {
   var randVal = minVal+(Math.random()*(maxVal-minVal));
   return typeof floatVal=='undefined'?Math.round(randVal):randVal.toFixed(floatVal);
 }
+
+FB.init({
+	appId : fbid,
+	status : true, // check login status
+	cookie : true, // enable cookies to allow the server to access the session
+	xfbml : true // parse XFBML
+});
+// ???
+var uid = FB.getSession().uid;
+var query = FB.Data.query('select title, url, created_time from link where owner={0}',uid);
