@@ -10,33 +10,35 @@ build_board = function(level){
 	grid_size = size_per_level[level-1];
 	card_count = grid_size * grid_size / 2;
 	while(row_counter <= grid_size){
+		row = "<div class='row'>";
 		while(col_counter <= grid_size){	
 			elem_id = row_counter + "_" + col_counter;			
 			image_id = "image_" + ((row_counter - 1) * grid_size + col_counter);
-			append_card(elem_id, image_id);
-			if(col_counter==grid_size) {
-				append_break();							
-			}			
+			row = append_card(row, elem_id, image_id);
 			col_counter = col_counter + 1;
 		}
+		if(grid_size < 10){
+		  row = row + "<div class='column grid_" + (10-grid_size)+"'></div>";
+		}
+		row = row + "</div>";
+		$("#card_container").append(row);
 		col_counter = 1;
 		row_counter = row_counter + 1;
 	}
 };
 
-append_card = function(elem_id, image_id){
+append_card = function(row, elem_id, image_id){
 	var content = [];
-	content[0] = "<div id='" + elem_id + "' class='grid_1'>";
+	content[0] = "<div id='" + elem_id + "' class='column grid_1'>";
 	content[1] = "<ul class='hover_block'><li id='li_" + image_id + "' class='hover_action'>";
 	content[2] = "<a id='" + image_id + "' href='#'>";
 	content[3] = "<img id='qm_li_" + image_id + "' class='questionMark'  style='position:absolute;z-index: 2;' alt='UWP' src='res/question_mark.jpg'>";
 	content[4] = "</a></li><ul></ul></ul></div>";
-	$("#card_container").append(content.join(''));	
+	return (row + content.join(''));
 };
 
-append_break = function(){
+append_row_start = function(){
 	$("<div>")
-		.attr("class", "clear")
-		.append("</div>")
+	  	.attr("class", "row")
 		.appendTo("#card_container");
 };

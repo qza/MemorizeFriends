@@ -2,38 +2,48 @@
 <html>
 	<head>
 		<title>Memorize friends</title>
-		<link href="css/reset.css" rel="stylesheet">
-		<link href="css/960.css" rel="stylesheet">
-		<link href="css/text.css" rel="stylesheet">
-		<link href="css/memorize.css" rel="stylesheet">					
+		<link href="css/reset.css" rel="stylesheet" type="text/css"/>
+		<link href="css/756_14_2_2.css" rel="stylesheet" type="text/css"/>
+		<link href="css/text.css" rel="stylesheet" type="text/css"/>
+		<link href="css/memorize.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
-		<div id="top_bar" class="container_16">
-			<div class="grid_16">
-				<img alt="Memorize title" src="res/memorize_title.png" />	
-			</div>		
+		<div id="top_bar" class="row">
+			<div class="column grid_14">
+				<img alt="Memorize title" src="res/memorize_title.png" />
+			</div>
 		</div>
-		<div id="head_container" class="container_16">
-			<div id="how_many_form_div" class="grid_15 prefix_1">
+		<div id="head_container" class="row">
+			<div class="column grid_14">
+				<p></p>
+			</div>
+		</div>
+		<div id="content_row" class="row">
+			<div id="left_bar" class="column grid_2">
+				<div id="how_many_form_div">
 				<span>
-					<label>Select level</label>
+					<label>Level</label>
 					<select id="level_select" name="level_select">
 						<option id="l1opt" value="1">Easy</option>
-						<option id="l2opt" value="2">Hard</option>
-						<option id="l3opt" value="3">Expert</option>
+						<option id="l2opt" value="2">Medium</option>
+						<option id="l3opt" value="3">Hard</option>
+						<option id="l3opt" value="4">Expert</option>
 					</select>
 					<button name="submit" value="Ok" onclick="button_clicked()">
 						Start
 					</button>
 				</span>
-			</div>	
-			<div clas="clear"></div>
-		</div>	
-		<div id="card_container" class="container_12">		
+			</div>
+			</div>
+			<div id="card_container" class="column grid_10">
+			</div>
+			<div id="right_bar" class="column grid_2">
+				<p></p>
+			</div>
 		</div>
 		<div id="fb-root"></div>
-		<script src="http://connect.facebook.net/en_US/all.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+		<script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 		<script type="text/javascript" src="js/card_builder.js"></script>
 		<script type="text/javascript" src="js/facebook_private.js"></script>		
 		<script type="text/javascript" src="js/facebook.js"></script>

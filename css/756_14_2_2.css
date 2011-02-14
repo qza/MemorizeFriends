@@ -1,0 +1,35 @@
+/*
+756px grid system ~ Core CSS.
+14 Columns ~ Margin left: 2px ~ Margin right: 2px
+
+Based on the 1kb grid system - http://www.1kbgrid.com/
+by Tyler Tate
+
+Created by the Grid System Generator - v1.01
+Learn more ~ http://www.gridsystemgenerator.com/
+*/
+
+.grid_1 {width: 50px;}
+.grid_2 {width: 104px;}
+.grid_3 {width: 158px;}
+.grid_4 {width: 212px;}
+.grid_5 {width: 266px;}
+.grid_6 {width: 320px;}
+.grid_7 {width: 374px;}
+.grid_8 {width: 428px;}
+.grid_9 {width: 482px;}
+.grid_10 {width: 536px;}
+.grid_11 {width: 590px;}
+.grid_12 {width: 644px;}
+.grid_13 {width: 698px;}
+.grid_14 {width: 752px;}
+.column {margin: 0 2px 0 2px;
+         overflow: hidden;
+         float: left;
+         display: inline;}
+.row {width: 756px;
+         margin: 0 auto;
+         overflow: hidden;}
+.row .row {margin: 0 -2px 0 -2px;
+         width: auto;
+         display: inline-block;}

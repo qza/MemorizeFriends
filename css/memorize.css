@@ -2,7 +2,7 @@ body {
 	background: url("../res/memorize_back.jpg");
 }
 
-ul.hover_block { display: block; overflow: hidden; height: 1%; padding: 1em 0 1em 0; margin-bottom: 0px;}
+ul.hover_block { display: block; overflow: hidden; height: 1%; padding: .2em 0 .2em 0; margin-bottom: 0px;}
 
 ul.hover_block li {
 	list-style:none;
@@ -18,7 +18,7 @@ ul.hover_block li a {
 	display: block;
 	position: relative;
 	overflow: hidden;
-	height: 60px;
+	height: 50px;
 	padding: 0px;
 	margin: 0px;
 	color: #000;
@@ -31,6 +31,11 @@ ul.hover_block li img {
 	top: 0;
 	left: 0;
 	border: 0;
+}
+
+ul.hover_block li a:hover img {
+  opacity:0.6;  filter:alpha(opacity=60);
+  border: solid .1em #3a5899;
 }
 
 #how_many_form_div{
