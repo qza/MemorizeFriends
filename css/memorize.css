@@ -1,4 +1,6 @@
-body { background: #fff; }
+body { 
+	background: url("../res/memorize_back.jpg");
+}
 
 ul.hover_block { display: block; overflow: hidden; height: 1%; padding: 1em 0 1em 0; margin-bottom: 0px;}
 

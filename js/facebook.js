@@ -12,9 +12,23 @@ FB.init({
 // Method called on application initialization
 var test_facebook_images = function(limit){
   user_id = facebook_user_id_holder();
-  add_user_pictures(user_id, limit);
+  checkLoginAndLoad(user_id, limit); 
 }
 
+function checkLoginAndLoad(user_id, limit){
+	if(FB.getLoginStatus()==null) {
+		FB.login(function(response) {
+  			if (response.session) {
+    			// user successfully logged in
+    			alert("LOGED IN");
+				add_user_pictures(user_id, limit);
+  			} 
+  			else {
+    			alert("NO USER LOGIN, SORRY");
+  			}
+		});
+	}
+}
 	
 /* Add user friends as card backgrounds. 
  *  

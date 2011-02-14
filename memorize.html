@@ -8,16 +8,19 @@
 		<link href="css/memorize.css" rel="stylesheet">					
 	</head>
 	<body>
+		<div id="top_bar" class="container_16">
+			<div class="grid_16">
+				<img alt="Memorize title" src="res/memorize_title.png" />	
+			</div>		
+		</div>
 		<div id="head_container" class="container_16">
 			<div id="how_many_form_div" class="grid_15 prefix_1">
 				<span>
 					<label>Select level</label>
 					<select id="level_select" name="level_select">
-						<option id="l1opt" value="1">Beginner</option>
-						<option id="l2opt" value="2">Easy</option>
-						<option id="l3opt" value="3">Advanced</option>
-						<option id="l4opt" value="4">Hard</option>
-						<option id="l5opt" value="5">Expert</option>
+						<option id="l1opt" value="1">Easy</option>
+						<option id="l2opt" value="2">Hard</option>
+						<option id="l3opt" value="3">Expert</option>
 					</select>
 					<button name="submit" value="Ok" onclick="button_clicked()">
 						Start
