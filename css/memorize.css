@@ -1,4 +1,5 @@
 body { 
+	padding-top: 20px;
 	background: url("../res/memorize_back.jpg");
 }
 
@@ -46,7 +47,7 @@ ul.hover_block li a:hover img {
 
 #how_many_form_div{
 	text-align:left;
-	padding: 1em;
+	padding: .1em;
 }
 
 #how_many_form_div span label{
@@ -54,20 +55,20 @@ ul.hover_block li a:hover img {
 	padding-top: 1em;
 }
 
-#score_board_div {
+.board_block {
 	background: url("../res/default_block.png");
-	margin-left: 4px;
+	margin: 0px 0px 8px 5px;
 	text-align:center;
 	height: 109px;
 }
 
-#score_label{
+.board_block_label{
 	font-size: 1.5em;
 	margin-top: 1em;
 	color: white;
 }
 
-#score_value{
+.board_block_value{
 	font-size: 4em;
 	color: #3a5899;
 }

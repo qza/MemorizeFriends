@@ -1,0 +1,49 @@
+#head_container ul {
+	padding: 5px;
+	margin: 5px 0;
+	list-style: none;
+	background: transparent;
+	/*border-bottom: 1px solid #e7e7e7;*/
+	float: left;
+	clear: left;
+}
+
+#head_container ul li {
+	float: left;
+	display: inline; /*For ignore double margin in IE6*/
+	margin: 0 10px;
+}
+
+#head_container ul li a {
+	text-decoration: none;
+	float:left;
+	color: #3a5899;
+	cursor: pointer;
+	font: 22px "Arial", Helvetica, sans-serif;
+}
+
+#head_container ul li a span {
+	margin: 0 10px 0 -10px;
+	padding: 1px 8px 5px 18px;
+	position: relative; /*To fix IE6 problem (not displaying)*/
+	float:left;
+}
+
+/*BLUE*/
+ul.blue li a:hover {
+ 	color: #3a5899;
+	background: url(../res/blue.png) no-repeat top right;
+}
+
+ul.blue li a:hover span {
+	background: url(../res/blue.png) no-repeat top left;
+}
+
+ul.blue li a.current {
+	background: url(../res/blue.png) no-repeat top right;
+ 	color: #3a5899;
+}
+
+ul.blue li a.current span {
+	background: url(../res/blue.png) no-repeat top left;
+}

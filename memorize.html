@@ -5,53 +5,31 @@
 		<link href="css/reset.css" rel="stylesheet" />
 		<link href="css/756_14_2_2.css" rel="stylesheet" />
 		<link href="css/text.css" rel="stylesheet" />
+		<link href="css/sliding.css" rel="stylesheet" />
 		<link href="css/memorize.css" rel="stylesheet"/>
 	</head>
 	<body>
 		<div id="top_bar" class="row">
-			<div id="top_title" class="column grid_4">
-				<p style="opacity: 0;">UWP UWP UWP</p>
-			</div>
-			<div id="top_title" class="column grid_12">
+			<div id="top_title" class="column grid_14">
 				<img alt="Memorize title" src="res/memorize_title.png" />
 			</div>
 		</div>
 		<div id="head_container" class="row">
 			<div class="column grid_14">
-				<p></p>
+				<ul class="blue">
+					<li><a href="#" title="home"><span>home</span></a></li>
+					<li><a href="#" title="board" class="current"><span>board</span></a></li>
+					<li><a href="#" title="options"><span>options</span></a></li>
+					<li><a href="#" title="scores"><span>scores</span></a></li>
+				        <li><a href="#" title="blog"><span>blog</span></a></li>
+				        <li><a href="#" title="contact"><span>contact</span></a></li>
+				</ul>
 			</div>
 		</div>
 		<div id="content_row" class="row">
 			<div id="left_bar" class="column grid_2">
 				<div id="left_menu">
-					<a id="board_link" href="#">
-						<img alt="Memorize title" src="res/board.png" />
-					</a>
-					<a id="scores_link" href="#">
-						<img alt="Memorize title" src="res/scores.png" />
-					</a>
-					<a id="options_link" href="#">
-						<img alt="Memorize title" src="res/options.png" />
-					</a>
-					<a id="about_link" href="#">
-						<img alt="Memorize title" src="res/about.png" />
-					</a>
-					<a id="help_link" href="#">
-						<img alt="Memorize title" src="res/help.png" />
-					</a>
-				</div>
-
-			</div>
-			<div id="card_container" class="column grid_10">
-			</div>
-			<div id="right_bar" class="column grid_2">
-				<div id="score_board_div">
-					<label id="score_label">Score</label>
-					<div>
-						<label id="score_value">0</label>
-					</div>
-				</div>
-				<div id="how_many_form_div">
+					<div id="how_many_form_div">
 					<span>
 						<label>Level</label>
 						<select id="level_select" name="level_select">
@@ -65,6 +43,24 @@
 						</button>
 					</span>
 				</div>
+				</div>
+			</div>
+			<div id="card_container" class="column grid_10">
+			</div>
+			<div id="right_bar" class="column grid_2">
+				<div class="board_block">
+					<label class="board_block_label" id="score_label">Score</label>
+					<div>
+						<label class="board_block_value" id="score_value">0</label>
+					</div>
+				</div>
+				<div class="board_block">
+					<label class="board_block_label" id="time_label">Time</label>
+					<div>
+						<label class="board_block_value" id="time_value">0</label>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 		<div id="fb-root"></div>
