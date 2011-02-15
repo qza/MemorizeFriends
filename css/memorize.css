@@ -39,6 +39,10 @@ ul.hover_block li a:hover img {
   border: solid .1em #3a5899;
 }
 
+#left_menu{
+	margin-left: 15px;
+}
+
 #how_many_form_div{
 	text-align:left;
 	padding: 1em;

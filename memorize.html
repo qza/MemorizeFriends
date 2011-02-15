@@ -23,20 +23,24 @@
 		</div>
 		<div id="content_row" class="row">
 			<div id="left_bar" class="column grid_2">
-				<div id="how_many_form_div">
-				<span>
-					<label>Level</label>
-					<select id="level_select" name="level_select">
-						<option id="l1opt" value="1">Easy</option>
-						<option id="l2opt" value="2">Medium</option>
-						<option id="l3opt" value="3">Hard</option>
-						<option id="l3opt" value="4">Expert</option>
-					</select>
-					<button name="submit" value="Ok" onclick="button_clicked()">
-						Start
-					</button>
-				</span>
-			</div>
+				<div id="left_menu">
+					<a id="board_link" href="#">
+						<img alt="Memorize title" src="res/board.png" />
+					</a>
+					<a id="scores_link" href="#">
+						<img alt="Memorize title" src="res/scores.png" />
+					</a>
+					<a id="options_link" href="#">
+						<img alt="Memorize title" src="res/options.png" />
+					</a>
+					<a id="about_link" href="#">
+						<img alt="Memorize title" src="res/about.png" />
+					</a>
+					<a id="help_link" href="#">
+						<img alt="Memorize title" src="res/help.png" />
+					</a>
+				</div>
+
 			</div>
 			<div id="card_container" class="column grid_10">
 			</div>
@@ -46,6 +50,20 @@
 					<div>
 						<label id="score_value">0</label>
 					</div>
+				</div>
+				<div id="how_many_form_div">
+					<span>
+						<label>Level</label>
+						<select id="level_select" name="level_select">
+							<option id="l1opt" value="1">Easy</option>
+							<option id="l2opt" value="2">Medium</option>
+							<option id="l3opt" value="3">Hard</option>
+							<option id="l3opt" value="4">Expert</option>
+						</select>
+						<button name="submit" value="Ok" onclick="button_clicked()">
+							Start
+						</button>
+					</span>
 				</div>
 			</div>
 		</div>
