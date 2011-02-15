@@ -15,7 +15,7 @@ bootstrap = function(){
                         var my_id = $(this).attr("id");
                         var qm_id = "qm_" + my_id;
 			var tmp = $('#'+qm_id);		
-			tmp.animate({left:'60px'},{queue:false,duration:300});
+			tmp.animate({left:'50px'},{queue:false,duration:500});
 			this.setAttribute('click','click');
 			if(count ==1){
 				pick2 = this;
@@ -24,7 +24,7 @@ bootstrap = function(){
 					setTimeout(function(){alert('You made a match!');},300);
 					return;
 				} else {
-					setTimeout(closing,2000);
+					setTimeout(closing,1500);
 				}
 			} else {
 				pick1 = this;
@@ -36,9 +36,17 @@ bootstrap = function(){
 };	
 
 pickMatch=function(pick1,pick2){
-	var p1 = $(pick1).find('img')[0].getAttribute('src');
-	var p2 = $(pick2).find('img')[0].getAttribute('src');
-	return p1 == p2;
+	var p1imgs = $(pick1).find('img');
+	var p2imgs = $(pick2).find('img');
+
+	if( p1imgs.length>1 &&  p2imgs>1) {
+		var p1 = p1imgs[1].getAttribute('src');
+		var p2 = p2imgs[1].getAttribute('src');
+		return p1 == p2;
+	} 
+	else {
+		return false;
+	}
 }
 
 closing = function(){
