@@ -21,7 +21,8 @@ bootstrap = function(){
 				pick2 = this;
 				if(pickMatch(pick1, pick2)==true) {
 					count = 0;
-					setTimeout(function(){alert('You made a match!');},300);
+					updateScore();
+					// setTimeout(function(){alert('You made a match!');},300);
 					return;
 				} else {
 					setTimeout(closing,1500);
@@ -35,18 +36,29 @@ bootstrap = function(){
 	});
 };	
 
+var testing_on = true;
+
 pickMatch=function(pick1,pick2){
 	var p1imgs = $(pick1).find('img');
 	var p2imgs = $(pick2).find('img');
-
 	if( p1imgs.length>1 &&  p2imgs>1) {
 		var p1 = p1imgs[1].getAttribute('src');
 		var p2 = p2imgs[1].getAttribute('src');
 		return p1 == p2;
 	} 
 	else {
-		return false;
+		if(testing_on==true) {
+			return true;
+		} else {
+			return false;
+		}
 	}
+}
+
+updateScore=function(){
+	var currentVal = $("#score_value").text();
+	var newVal = parseInt(currentVal) + 2;
+	$("#score_value").text(newVal);
 }
 
 closing = function(){

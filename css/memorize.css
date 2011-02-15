@@ -49,3 +49,22 @@ ul.hover_block li a:hover img {
 	padding-top: 1em;
 }
 
+#score_board_div {
+	background: url("../res/default_block.png");
+	margin-left: 4px;
+	text-align:center;
+	height: 109px;
+}
+
+#score_label{
+	font-size: 1.5em;
+	margin-top: 1em;
+	color: white;
+}
+
+#score_value{
+	font-size: 4em;
+	color: #3a5899;
+}
+
+

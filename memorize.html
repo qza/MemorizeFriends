@@ -2,14 +2,17 @@
 <html>
 	<head>
 		<title>Memorize friends</title>
-		<link href="css/reset.css" rel="stylesheet" type="text/css"/>
-		<link href="css/756_14_2_2.css" rel="stylesheet" type="text/css"/>
-		<link href="css/text.css" rel="stylesheet" type="text/css"/>
-		<link href="css/memorize.css" rel="stylesheet" type="text/css"/>
+		<link href="css/reset.css" rel="stylesheet" />
+		<link href="css/756_14_2_2.css" rel="stylesheet" />
+		<link href="css/text.css" rel="stylesheet" />
+		<link href="css/memorize.css" rel="stylesheet"/>
 	</head>
 	<body>
 		<div id="top_bar" class="row">
-			<div class="column grid_14">
+			<div id="top_title" class="column grid_2">
+				<p style="opacity: 0;">UWP UWP UWP</p>
+			</div>
+			<div id="top_title" class="column grid_12">
 				<img alt="Memorize title" src="res/memorize_title.png" />
 			</div>
 		</div>
@@ -38,7 +41,12 @@
 			<div id="card_container" class="column grid_10">
 			</div>
 			<div id="right_bar" class="column grid_2">
-				<p></p>
+				<div id="score_board_div">
+					<label id="score_label">Score</label>
+					<div>
+						<label id="score_value">0</label>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div id="fb-root"></div>
