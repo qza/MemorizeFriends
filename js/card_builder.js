@@ -32,7 +32,7 @@ append_card = function(row, elem_id, image_id){
 	content[0] = "<div id='" + elem_id + "' class='column grid_1'>";
 	content[1] = "<ul class='hover_block'><li id='li_" + image_id + "' class='hover_action'>";
 	content[2] = "<a id='" + image_id + "' href='#'>";
-	content[3] = "<img id='qm_li_" + image_id + "' class='questionMark'  style='position:absolute;z-index: 2;' alt='UWP' src='res/question_mark.jpg'>";
+	content[3] = "<img id='qm_li_" + image_id + "' class='questionMark'  style='position:absolute;z-index: 2;' alt='UWP' src='res/question_mark_48.jpg'>";
 	content[4] = "</a></li><ul></ul></ul></div>";
 	return (row + content.join(''));
 };
