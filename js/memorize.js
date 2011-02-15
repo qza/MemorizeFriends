@@ -6,6 +6,7 @@ var pick2 = null;
 
 $(function(){
     bootstrap(); 
+    build_board(-1, true);
 });
 
 bootstrap = function(){
@@ -71,13 +72,17 @@ closing = function(){
 			$(this).find('img').animate({left:'0px'},{queue:false,duration:1000});
 		});
 	}
-};	
+};
+
+load_board = function(){
+	level_str = $("#level_select option:selected").val();
+	level = parseInt(level_str);  
+	build_board(level, false);
+}
 
 button_clicked = function(){
 	$("#card_container").html("");
-	level_str = $("#level_select option:selected").val();
-	level = parseInt(level_str);  
-	build_board(level);
+	load_board();	
 	test_facebook_images(card_count);
 	bootstrap();
 };
