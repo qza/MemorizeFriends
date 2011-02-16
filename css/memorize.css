@@ -73,4 +73,13 @@ ul.hover_block li a:hover img {
 	color: #3a5899;
 }
 
+#counter_form {
+  padding-top: 1em;
+}
+
+#time_value {
+	font-size: 3em;
+	color: #3a5899;
+}
+
 

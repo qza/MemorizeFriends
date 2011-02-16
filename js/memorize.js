@@ -78,11 +78,44 @@ load_board = function(){
 	level_str = $("#level_select option:selected").val();
 	level = parseInt(level_str);  
 	build_board(level, false);
+	return level;
 }
 
 button_clicked = function(){
 	$("#card_container").html("");
-	load_board();	
+	level = load_board();	
 	test_facebook_images(card_count);
 	bootstrap();
+        count_down(level);
+	$("#score_value").text(0);
+};
+
+
+var milisec = 0;
+var seconds = 30;
+var game_on;
+
+function display() { 
+  if (milisec<=0){ 
+    milisec=9;
+    seconds-=1; 
+  } 
+  if (seconds<=-1){ 
+    milisec=0;
+    seconds+=1;
+  } 
+  else  {
+     milisec-=1;
+  }
+  $("#time_value").text(seconds+"."+milisec);
+  setTimeout("display()",100);
+};
+
+count_down = function(board_size) {
+   seconds = board_size * board_size * 5;
+   $("#time_value").text(seconds+"."+milisec);
+   if(game_on == null){
+      display();
+      game_on = true;
+   }
 };
