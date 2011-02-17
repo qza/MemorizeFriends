@@ -13,8 +13,8 @@ bootstrap = function(){
 	$('.hover_action').click(function(){				
 		if(this.getAttribute('click')!= null) return false;
 		if(count < 2 ) {
-         var my_id = $(this).attr("id");
-         var qm_id = "qm_" + my_id;
+                        var my_id = $(this).attr("id");
+                        var qm_id = "qm_" + my_id;
 			var tmp = $('#'+qm_id);		
 			tmp.animate({left:'50px'},{queue:false,duration:500});
 			this.setAttribute('click','click');
@@ -82,40 +82,40 @@ load_board = function(){
 }
 
 button_clicked = function(){
-	if(game_on==true){		
-		reset_play();
-	} 
-	else {
-		$("#card_container").html("");
-		level = load_board();
-		test_facebook_images(card_count);
-		bootstrap();
-	   count_down(level);
-		$("#score_value").text(0);
-	}
-};
-
-function reset_play(){
-	game_on = false;
+	$("#card_container").html("");
+	level = load_board();	
+	test_facebook_images(card_count);
+	bootstrap();
+        count_down(level);
 	$("#score_value").text(0);
-	$("#time_value").text(000);
-}
-
-var seconds = 30;
-var game_on = false;
-
-function display() {
-	if (game_on==true && seconds>0){
-		seconds-=1;
-		$("#time_value").text(seconds);		
-		setTimeout("display()",1000);
-	} 
-  	return false;
 };
-  
+
+
+var milisec = 0;
+var seconds = 30;
+var game_on;
+
+function display() { 
+  if (milisec<=0){ 
+    milisec=9;
+    seconds-=1; 
+  } 
+  if (seconds<=-1){ 
+    milisec=0;
+    seconds+=1;
+  } 
+  else  {
+     milisec-=1;
+  }
+  $("#time_value").text(seconds+"."+milisec);
+  setTimeout("display()",100);
+};
+
 count_down = function(board_size) {
-	game_on = true;
-   seconds = board_size * board_size * 10;
-   $("#time_value").text(seconds);
-   display();
+   seconds = board_size * board_size * 5;
+   $("#time_value").text(seconds+"."+milisec);
+   if(game_on == null){
+      display();
+      game_on = true;
+   }
 };
