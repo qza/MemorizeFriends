@@ -13,7 +13,7 @@ ul.hover_block li {
 	width:99%; 
 	position: relative;
 	padding: 0px;
-	margin: 0px;*/
+	margin: 0px;
 }
 
 ul.hover_block li a {
@@ -37,22 +37,28 @@ ul.hover_block li img {
 }
 
 ul.hover_block li a:hover img {
-  opacity:0.7;  filter:alpha(opacity=70);
+  opacity:0.7;  
+  filter:alpha(opacity=70);
   border: solid .1em #3a5899;
 }
 
 #left_menu{
-	margin-left: 15px;
+	margin-left: 10px;
 }
 
 #how_many_form_div{
 	text-align:left;
-	padding: .1em;
 }
 
 #how_many_form_div span label{
-	font-size: 1.2em; 
-	padding-top: 1em;
+	font-size: 22px;
+	color: #3A5899;
+	padding: 0 0 1em .5em;	
+	/* padding-top: 1em;*/
+}
+
+#start_image {
+	margin-top: 7px;
 }
 
 .board_block {
@@ -69,17 +75,16 @@ ul.hover_block li a:hover img {
 }
 
 .board_block_value{
-	font-size: 4em;
+	font-size: 3.5em;
 	color: #3a5899;
 }
 
 #counter_form {
-  padding-top: 1em;
+  padding-top: .8em;
+  text-align: center;
 }
 
 #time_value {
 	font-size: 3em;
 	color: #3a5899;
 }
-
-

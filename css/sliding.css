@@ -3,7 +3,7 @@
 	margin: 5px 0;
 	list-style: none;
 	background: transparent;
-	/*border-bottom: 1px solid #e7e7e7;*/
+	/* border-bottom: 1px solid #e7e7e7;*/
 	float: left;
 	clear: left;
 }
@@ -11,7 +11,7 @@
 #head_container ul li {
 	float: left;
 	display: inline; /*For ignore double margin in IE6*/
-	margin: 0 10px;
+	margin: 0 5px 0 5px;
 }
 
 #head_container ul li a {
@@ -19,7 +19,7 @@
 	float:left;
 	color: #3a5899;
 	cursor: pointer;
-	font: 22px "Arial", Helvetica, sans-serif;
+	font: 24px "Arial", Helvetica, sans-serif;
 }
 
 #head_container ul li a span {
