@@ -18,13 +18,13 @@ var test_facebook_images = function(limit){
 function checkLoginAndLoad(user_id, limit){
 	if(FB.getLoginStatus()==null) {
 		FB.login(function(response) {
-  			if (response.session) {
+  			if (response.authResponse) {
     			// user successfully logged in
-    			alert("LOGED IN");
+    			console.log("User is connected to the application.");
 				add_user_pictures(user_id, limit);
   			} 
   			else {
-    			alert("NO USER LOGIN, SORRY");
+    			console.log("User is NOT connected to the application.");
   			}
 		});
 	}
@@ -134,5 +134,16 @@ FB.init({
 	xfbml : true // parse XFBML
 });
 // ???
-var uid = FB.getSession().uid;
+var uid = "";
+
+FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    uid = response.authResponse.userID;
+  } else if (response.status === 'not_authorized') {
+  	console.log("User is NOT AUTHORIZED to the application.");
+  } else {
+    console.log("User is NOT LOGGED INTO FACEBOOK.");
+  }
+});
+
 var query = FB.Data.query('select title, url, created_time from link where owner={0}',uid);
