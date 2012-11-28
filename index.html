@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+	<head>
+		<title>Memorize friends</title>
+		<link href="css/reset.css" rel="stylesheet" />
+		<link href="css/756_14_2_2.css" rel="stylesheet" />
+		<link href="css/text.css" rel="stylesheet" />
+		<link href="css/sliding.css" rel="stylesheet" />
+		<link href="css/memorize.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div id="root_container" class="row">
+		 
+			<div id="top_title" class="column grid_14">
+				<img alt="Memorize title" src="res/memorize_title.png" />
+			</div>
+					
+			<div id="head_container" class="column grid_14">
+				<ul class="blue">
+					<li><a href="#" title="home"><span>home</span></a></li>
+					<li><a href="#" title="board" class="current"><span>board</span></a></li>
+					<li><a href="#" title="options"><span>options</span></a></li>
+					<li><a href="#" title="scores"><span>scores</span></a></li>
+				   <li><a href="#" title="blog"><span>blog</span></a></li>
+				   <li><a href="#" title="contact"><span>contact</span></a></li>
+				</ul>
+			</div>
+		
+			<div id="left_bar" class="column grid_2">
+				<div id="left_menu">
+					<div id="how_many_form_div">
+						<span>
+							<label>Level</label>
+							<select id="level_select" name="level_select">
+								<option id="l1opt" value="1">Easy</option>
+								<option id="l2opt" value="2">Medium</option>
+								<option id="l3opt" value="3">Hard</option>
+								<option id="l3opt" value="4">Expert</option>
+							</select>
+							<a id="start_button" href="#" name="submit" value="Ok" onclick="button_clicked()">
+								<img id="start_image" alt="Start" src="res/start.png"/>
+							</a>
+						</span>
+					</div>
+				</div>
+			</div>
+			
+			<div id="card_container" class="column grid_10">
+			</div>
+			
+			<div id="right_bar" class="column grid_2">
+				<div class="board_block">
+					<label class="board_block_label" id="score_label">Score</label>
+					<div>
+						<label class="board_block_value" id="score_value">0</label>
+					</div>
+				</div>
+				<div class="board_block">
+					<label class="board_block_label" id="time_label">Time</label>
+					<div>
+						<form id="counter_form" name="counter">
+							<label class="board_block_value" id="time_value">000</label>
+						</form> 
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="fb-root"></div>
+		<script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
+		
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+		<script type="text/javascript">
+		  if (typeof jQuery == 'undefined') {
+		    document.write(unescape("%3Cscript src='js/jquery-1.5.js' type='text/javascript'%3E%3C/script%3E"));
+		  }
+		</script>
+		
+		<script type="text/javascript" src="js/card_builder.js"></script>
+		<script type="text/javascript" src="js/facebook_private.js"></script>
+		<script type="text/javascript" src="js/facebook.js"></script>
+		<script type="text/javascript" src="js/memorize.js"></script>
+	</body>
+</html>
